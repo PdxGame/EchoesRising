@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ckykacaepkch8"]
+
+[ext_resource type="Script" uid="uid://dtkocgrntcaqn" path="res://scripts/objects/delayed_spring.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cbcwt7v6ajysi" path="res://assets/new_platformer_pack/Vector/Tiles/spring_out.svg" id="2"]
+[ext_resource type="AudioStream" uid="uid://djblpiy7jxlvr" path="res://assets/new_platformer_pack/Sounds/sfx_jump-high.ogg" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(64, 64)
+
+[node name="DelayedSpring" type="StaticBody2D" unique_id=1892693518]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1")
+bounce_velocity = -1000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=895102659]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2")
+
+[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=642193828]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="." unique_id=918746223]
+stream = ExtResource("3")

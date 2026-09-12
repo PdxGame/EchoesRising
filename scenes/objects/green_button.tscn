@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bofg6mpo1pjht"]
+
+[ext_resource type="Script" uid="uid://c0tijiiojr253" path="res://scripts/objects/button.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://con5dlp0fyng5" path="res://assets/new_platformer_pack/Sprites/Tiles/Default/switch_green.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://gaieoigygypt" path="res://assets/new_platformer_pack/Sprites/Tiles/Default/switch_green_pressed.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_detection"]
+size = Vector2(64, 40)
+
+[node name="GreenButton" type="Area2D" unique_id=915047140]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1")
+pressed_texture = ExtResource("3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=139069876]
+texture = ExtResource("2")
+
+[node name="DetectionShape" type="CollisionShape2D" parent="." unique_id=1150426785]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_detection")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

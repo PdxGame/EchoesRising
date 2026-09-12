@@ -1,0 +1,609 @@
+[gd_scene format=4 uid="uid://giiot28kdulk"]
+
+[ext_resource type="TileSet" uid="uid://dq2x50t4131yy" path="res://resources/tilesets/terrain_tileset.tres" id="1_i75ie"]
+[ext_resource type="PackedScene" uid="uid://dg2850ixu4pxm" path="res://scenes/objects/blue_button.tscn" id="2_rjb05"]
+[ext_resource type="PackedScene" uid="uid://c63usql2ykui6" path="res://scenes/objects/blue_spring.tscn" id="3_hbdav"]
+[ext_resource type="Texture2D" uid="uid://k6fa2qjlanch" path="res://assets/new_platformer_pack/Sprites/Characters/Double/character_green_idle.png" id="4_5j4em"]
+[ext_resource type="PackedScene" uid="uid://c0v3c8715yhyg" path="res://scenes/objects/temporary_bridge.tscn" id="4_hbdav"]
+[ext_resource type="FontVariation" path="res://assets/fonts/hud_font.tres" id="5_mo4qo"]
+[ext_resource type="PackedScene" uid="uid://ckykacaepkch8" path="res://scenes/objects/delayed_spring.tscn" id="6_d2l32"]
+[ext_resource type="Script" uid="uid://dtim1li1boanh" path="res://scripts/objects/guide_npc.gd" id="7_28oeu"]
+[ext_resource type="Script" uid="uid://bhjgimcqhp651" path="res://scripts/world/background_crossfade.gd" id="9_lu8xc"]
+[ext_resource type="PackedScene" uid="uid://cd8a3wh4g500x" path="res://scenes/objects/red_button.tscn" id="9_u8k6i"]
+[ext_resource type="Texture2D" uid="uid://bdifkoe4sv0ca" path="res://assets/new_platformer_pack/Vector/Tiles/switch_red_pressed.svg" id="10_0qtti"]
+[ext_resource type="PackedScene" uid="uid://cyxdlmrpupklc" path="res://scenes/objects/temporary_passway.tscn" id="10_28oeu"]
+[ext_resource type="PackedScene" uid="uid://coe5qiy5xthkd" path="res://scenes/objects/guide_npc.tscn" id="13_5j4em"]
+[ext_resource type="Script" uid="uid://cpnyqv61u8w23" path="res://scripts/objects/temporary_platform.gd" id="14_ihnhe"]
+[ext_resource type="Texture2D" uid="uid://m1b2pay6c2sc" path="res://assets/new_platformer_pack/Vector/Tiles/terrain_grass_block.svg" id="14_mo4qo"]
+[ext_resource type="Texture2D" uid="uid://1gs7tyxc0rr8" path="res://assets/new_platformer_pack/Vector/Tiles/rope.svg" id="15_36qhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_detection"]
+size = Vector2(39, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmth1"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0d74"]
+size = Vector2(64, 64)
+
+[node name="LevelMap" type="Node2D" unique_id=229811930]
+
+[node name="LevelOne" type="Node" parent="." unique_id=848546886]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="LevelOne" unique_id=1550288693]
+tile_map_data = PackedByteArray("AAD4/wEAAAAEAAkAAAD5/wEAAAAEAAkAAAD6/wEAAAAEAAkAAAD7/wEAAAAEAAkAAAD8/wEAAAAEAAkAAAD9/wEAAAAEAAkAAAAAAAEAAAAEAAkAAAABAAEAAAAEAAkAAAACAAEAAAAEAAkAAAADAAEAAAAEAAkAAAAEAAEAAAAEAAkAAAAFAAEAAAAEAAkAAAAHAAEAAAAEAAkAAAD+/wEAAAAEAAkAAAD//wEAAAAEAAkAAAAIAAEAAAAEAAkAAAAJAAEAAAAEAAkAAAD3/wEAAAAEAAkAAAD2/wEAAAAEAAkAAAD1/wEAAAAJAAEAAAAEAPr/AAAEAAkAAAAFAPr/AAAEAAkAAAAAAPb/AAAEAAkAAAD///b/AAAEAAkAAAD7//L/AAAEAAkAAAD8//L/AAAEAAkAAAD9//L/AAAEAAkAAAD6//b/AAAEAAkAAAD7//b/AAAEAAkAAAD5//b/AAAEAAkAAAD///3/AAAEAAkAAAAAAP3/AAAEAAkAAAABAP3/AAAEAAkAAAACAP3/AAAEAAkAAAD9////AAAEAAkAAAD+////AAAEAAkAAAAGAAEAAAAEAAkAAAD+/+//AAAEAAkAAAD//+//AAAEAAkAAAAAAO//AAAEAAkAAAAFAOz/AAAEAAkAAAAGAOz/AAAEAAkAAAAHAOz/AAAEAAkAAAAIAOz/AAAEAAkAAAD1/+3/AAAJAAEAAAD2/+3/AAAFAAoAAAAGAOv/AAAEAAkAAAAHAOv/AAAEAAkAAAAHAOr/AAAEAAkAAAAIAOv/AAAEAAkAAAAJAOz/AAAEAAkAAAAKAOz/AAAJAAEAAAAKAOv/AAAJAAEAAAAJAOv/AAAEAAkAAAAIAOr/AAAEAAkAAAAJAOr/AAAEAAkAAAAKAOr/AAAJAAEAAAAIAOn/AAAEAAkAAAAJAOn/AAAEAAkAAAAKAOn/AAAJAAEAAAAJAOj/AAAEAAkAAAAKAOj/AAAJAAEAAAAKAOf/AAAJAAEAAAAKAOb/AAAJAAEAAAAKAAEAAAAJAAEAAAAKAAAAAAAJAAEAAAAKAP//AAAJAAEAAAAKAP7/AAAJAAEAAAAKAP3/AAAJAAEAAAAKAPz/AAAJAAEAAAAKAPn/AAAJAAEAAAAKAPr/AAAJAAEAAAAKAPv/AAAJAAEAAAAKAPj/AAAJAAEAAAAKAPf/AAAJAAEAAAAKAPb/AAAJAAEAAAAKAPX/AAAJAAEAAAAKAPT/AAAJAAEAAAAKAPP/AAAJAAEAAAAKAPL/AAAJAAEAAAAKAPH/AAAJAAEAAAAKAPD/AAAJAAEAAAAKAO//AAAJAAEAAAAKAO7/AAAJAAEAAAAKAO3/AAAJAAEAAAD1/wAAAAAJAAEAAAD1////AAAJAAEAAAD1//7/AAAJAAEAAAD1//3/AAAJAAEAAAD1//z/AAAJAAEAAAD1//v/AAAJAAEAAAD1//r/AAAJAAEAAAD1//n/AAAJAAEAAAD1//j/AAAJAAEAAAD1//f/AAAJAAEAAAD1//b/AAAJAAEAAAD1//X/AAAJAAEAAAD1//T/AAAJAAEAAAD1//P/AAAJAAEAAAD1//L/AAAJAAEAAAD1//H/AAAJAAEAAAD1//D/AAAJAAEAAAD1/+//AAAJAAEAAAD1/+7/AAAJAAEAAAD1/+z/AAAJAAEAAAD1/+v/AAAJAAEAAAD1/+r/AAAJAAEAAAD1/+n/AAAJAAEAAAD1/+j/AAAJAAEAAAD1/+f/AAAJAAEAAAD1/+b/AAAJAAEAAAD2//T/AAAEAAkAAAD3//T/AAAEAAkAAAD4//T/AAAEAAkAAAD6//L/AAAEAAkAAAD3/+3/AAAEAAkAAAD4/+3/AAAEAAkAAAD3/+z/AAAOAAEAAAD4/+z/AAAOAAEAAAD2/+z/AAAOAAEAAAD2//P/AAAOAAEAAAD3/wAAAAAOAAEAAAAIAAAAAAAOAAEAAAAGAAAAAAAOAAEAAAAJAOf/AAAMAAIAAAAJAOb/AAAOAAMAAAD5/+b/AAAEAAkAAAD4/+b/AAAEAAkAAAD3/+b/AAAEAAkAAAD2/+b/AAAEAAkAAAACAOb/AAAEAAkAAAAAAOb/AAAEAAkAAAD//+b/AAAEAAkAAAD+/+b/AAAEAAkAAAD9/+b/AAAEAAkAAAD8/+b/AAAEAAkAAAD7/+b/AAAEAAkAAAD6/+b/AAAEAAkAAAABAOb/AAAEAAkAAAADAO3/AAAEAAkAAAAEAO3/AAAEAAkAAAAFAO3/AAAEAAkAAAAGAO3/AAAEAAkAAAAHAO3/AAAEAAkAAAAIAO3/AAAEAAkAAAAJAO3/AAAEAAkAAAAIAOj/AAAEAAkAAAAHAOn/AAAEAAkAAAAGAOr/AAAEAAkAAAAFAOv/AAAEAAkAAAAEAOz/AAAEAAkAAAACAO3/AAAEAAkAAAADAOb/AAAEAAkAAAAEAOb/AAAEAAkAAAAHAPj/AAAEAAkAAAAIAPj/AAAEAAkAAAAJAPj/AAAEAAkAAAD4/+7/AAAOAAEAAAD5/+//AAAEAAkAAAD4/+//AAAEAAkAAAD3/+//AAAEAAkAAAA=")
+tile_set = ExtResource("1_i75ie")
+
+[node name="BlueSpring" parent="LevelOne" unique_id=1248858983 instance=ExtResource("3_hbdav")]
+position = Vector2(542, -544)
+
+[node name="GuideNPC" type="Area2D" parent="LevelOne" unique_id=1797931580]
+position = Vector2(-406, 51)
+collision_layer = 0
+monitorable = false
+script = ExtResource("7_28oeu")
+npc_name = "花园守梯人"
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelOne/GuideNPC" unique_id=517449081]
+texture_filter = 2
+position = Vector2(0, -18)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_5j4em")
+
+[node name="PromptLabel" type="Label" parent="LevelOne/GuideNPC" unique_id=1526018309]
+visible = false
+offset_left = -70.0
+offset_top = -78.0
+offset_right = 70.0
+offset_bottom = -56.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.1, 0.14, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_mo4qo")
+theme_override_font_sizes/font_size = 16
+text = "按 E 交谈"
+horizontal_alignment = 1
+
+[node name="DetectionShape" type="CollisionShape2D" parent="LevelOne/GuideNPC" unique_id=106758233]
+position = Vector2(0.5, -11.5)
+shape = SubResource("RectangleShape2D_detection")
+
+[node name="LevelTwo" type="Node" parent="." unique_id=543645905]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="LevelTwo" unique_id=1051782166]
+tile_map_data = PackedByteArray("AAD2/9//AAAEAAkAAAD8/93/AAAEAAkAAAD7/93/AAAEAAkAAAD6/93/AAAEAAkAAAAHANn/AAAEAAkAAAAGANn/AAAEAAkAAAAFANn/AAAEAAkAAAD1/+X/AAAJAAEAAAD1/+T/AAAJAAEAAAD1/+P/AAAJAAEAAAD1/+L/AAAJAAEAAAD1/+H/AAAJAAEAAAD1/+D/AAAJAAEAAAD1/9//AAAJAAEAAAD1/97/AAAJAAEAAAD1/93/AAAJAAEAAAD1/9z/AAAJAAEAAAD1/9v/AAAJAAEAAAD1/9r/AAAJAAEAAAD1/9n/AAAJAAEAAAD1/9j/AAAJAAEAAAD1/9f/AAAJAAEAAAD1/9b/AAAJAAEAAAD1/9X/AAAJAAEAAAD1/9T/AAAJAAEAAAD1/9P/AAAJAAEAAAD1/9L/AAAJAAEAAAD1/9H/AAAJAAEAAAD1/9D/AAAJAAEAAAD1/8//AAAJAAEAAAD1/87/AAAJAAEAAAD1/83/AAAJAAEAAAD1/8z/AAAJAAEAAAAKAOX/AAAJAAEAAAAKAOT/AAAJAAEAAAAKAOP/AAAJAAEAAAAKAOL/AAAJAAEAAAAKAOH/AAAJAAEAAAAKAOD/AAAJAAEAAAAKAN//AAAJAAEAAAAKAN7/AAAJAAEAAAAKAN3/AAAJAAEAAAAKANz/AAAJAAEAAAAKANv/AAAJAAEAAAAKANr/AAAJAAEAAAAKANn/AAAJAAEAAAAKANj/AAAJAAEAAAAKANf/AAAJAAEAAAAKANb/AAAJAAEAAAAKANX/AAAJAAEAAAAKANT/AAAJAAEAAAAKANP/AAAJAAEAAAAKANL/AAAJAAEAAAAKANH/AAAJAAEAAAAKAND/AAAJAAEAAAAKAM//AAAJAAEAAAAKAM7/AAAJAAEAAAAKAM3/AAAJAAEAAAAKAMz/AAAJAAEAAAD6/9T/AAAEAAkAAAD7/9T/AAAEAAkAAAD8/9T/AAAEAAkAAAD5/9T/AAAEAAkAAAD1/8v/AAAJAAEAAAD1/8r/AAAJAAEAAAD1/8n/AAAJAAEAAAD1/8j/AAAJAAEAAAD1/8f/AAAJAAEAAAD1/8b/AAAJAAEAAAD1/8X/AAAJAAEAAAD1/8T/AAAJAAEAAAD1/8P/AAAJAAEAAAD1/8L/AAAJAAEAAAD1/8H/AAAJAAEAAAD1/8D/AAAJAAEAAAD1/7//AAAJAAEAAAD1/77/AAAJAAEAAAD1/73/AAAJAAEAAAAKAMv/AAAJAAEAAAAKAMr/AAAJAAEAAAAKAMn/AAAJAAEAAAAKAMj/AAAJAAEAAAAKAMf/AAAJAAEAAAAKAMb/AAAJAAEAAAAKAMX/AAAJAAEAAAAKAMT/AAAJAAEAAAAKAMP/AAAJAAEAAAAKAML/AAAJAAEAAAAKAMH/AAAJAAEAAAAKAMD/AAAJAAEAAAAKAL//AAAJAAEAAAAKAL7/AAAJAAEAAAAKAL3/AAAJAAEAAAD2/9H/AAAEAAkAAAD4/9H/AAAEAAkAAAAFAMf/AAAEAAkAAAAEAMf/AAAEAAkAAAADAMf/AAAEAAkAAAACAMf/AAAEAAkAAAD6/8P/AAAEAAkAAAD3/8D/AAAEAAkAAAAAAMb/AAAEAAkAAAD//8b/AAAEAAkAAAD+/8b/AAAEAAkAAAD+/8X/AAAEAAkAAAD//8X/AAAEAAkAAAD+/8T/AAAEAAkAAAD1/7z/AAAJAAEAAAD1/7v/AAAJAAEAAAD1/7r/AAAJAAEAAAD1/7n/AAAJAAEAAAD1/7j/AAAJAAEAAAD1/7f/AAAJAAEAAAD1/7b/AAAJAAEAAAAKALz/AAAJAAEAAAAKALv/AAAJAAEAAAAKALr/AAAJAAEAAAAKALn/AAAJAAEAAAAKALj/AAAJAAEAAAAKALf/AAAJAAEAAAAKALb/AAAJAAEAAAAKALX/AAAJAAEAAAAKALT/AAAJAAEAAAAKALP/AAAJAAEAAAAKALL/AAAJAAEAAAAKALH/AAAJAAEAAAAKALD/AAAJAAEAAAAKAK//AAAJAAEAAAAKAK7/AAAJAAEAAAAKAK3/AAAJAAEAAAAKAKz/AAAJAAEAAAAKAKv/AAAJAAEAAAAKAKr/AAAJAAEAAAAKAKn/AAAJAAEAAAD1/7X/AAAJAAEAAAD1/7T/AAAJAAEAAAD1/7P/AAAJAAEAAAD1/7L/AAAJAAEAAAD1/7H/AAAJAAEAAAD1/7D/AAAJAAEAAAD1/6//AAAJAAEAAAD1/67/AAAJAAEAAAD1/63/AAAJAAEAAAD1/6z/AAAJAAEAAAD1/6v/AAAJAAEAAAD1/6r/AAAJAAEAAAD1/6n/AAAJAAEAAAAKAKj/AAAJAAEAAAAKAKf/AAAJAAEAAAD1/6j/AAAJAAEAAAD1/6f/AAAJAAEAAAAJALL/AAAEAAkAAAAIALL/AAAEAAkAAAD2/6j/AAAEAAkAAAD3/6j/AAAEAAkAAAD3/6n/AAAEAAkAAAD2/6n/AAAEAAkAAAD2/6r/AAAEAAkAAAD3/6r/AAAEAAkAAAD4/6r/AAAEAAkAAAD4/6n/AAAEAAkAAAD5/6r/AAAEAAkAAAD5/6v/AAAEAAkAAAD4/6v/AAAEAAkAAAD3/6v/AAAEAAkAAAD2/6v/AAAEAAkAAAD2/6z/AAAEAAkAAAD3/6z/AAAEAAkAAAD4/6z/AAAEAAkAAAD5/6z/AAAEAAkAAAD6/6z/AAAEAAkAAAD6/6v/AAAEAAkAAAD7/6z/AAAEAAkAAAD2/6f/AAAOAAIAAAD2/6b/AAAPAAMAAAD+/+T/AAAEAAkAAAD9/+T/AAAEAAkAAAD8/+T/AAAEAAkAAAD7/+L/AAAEAAkAAAD6/+L/AAAEAAkAAAD5/+L/AAAEAAkAAAD4/+L/AAAEAAkAAAAJAKb/AAAEAAkAAAAIAKb/AAAEAAkAAAAHAKb/AAAEAAkAAAAGAKb/AAAEAAkAAAAFAKb/AAAEAAkAAAAEAKb/AAAEAAkAAAADAKb/AAAEAAkAAAACAKb/AAAEAAkAAAABAKb/AAAEAAkAAAAAAKb/AAAEAAkAAAD//6b/AAAEAAkAAAD+/6b/AAAEAAkAAAD9/6b/AAAEAAkAAAD8/6b/AAAEAAkAAAD//77/AAAEAAkAAAAFALn/AAAEAAkAAAAHANH/AAAEAAkAAAD//9P/AAAEAAkAAAADANL/AAAEAAkAAAD1/6b/AAAJAAEAAAAKAKb/AAAJAAEAAAACANb/AAAEAAkAAAABANb/AAAEAAkAAAAAANb/AAAEAAkAAAD//9b/AAAEAAkAAAD3/9H/AAAEAAkAAAD2/63/AAAEAAkAAAD3/63/AAAEAAkAAAD4/63/AAAEAAkAAAD5/63/AAAEAAkAAAD6/63/AAAEAAkAAAD7/63/AAAEAAkAAAD8/63/AAAEAAkAAAD9/63/AAAEAAkAAAD7/6b/AAAEAAkAAAAGAK//AAAEAAkAAAADAK//AAAEAAkAAAAAAK//AAAEAAkAAAD3/7P/AAAEAAkAAAD4/7P/AAAEAAkAAAD2/7P/AAAEAAkAAAA=")
+tile_set = ExtResource("1_i75ie")
+
+[node name="BlueButton" parent="LevelTwo" unique_id=1576055166 instance=ExtResource("2_rjb05")]
+position = Vector2(-608, -2144)
+temporary_platform_path = NodePath("TemporaryBridge")
+
+[node name="TemporaryBridge" parent="LevelTwo/BlueButton" unique_id=943804673 instance=ExtResource("4_hbdav")]
+position = Vector2(656, -181)
+
+[node name="SpringButton" parent="LevelTwo" unique_id=1530699216 instance=ExtResource("2_rjb05")]
+position = Vector2(-32, -2911)
+temporary_platform_path = NodePath("DelayedSpring")
+
+[node name="DelayedSpring" parent="LevelTwo/SpringButton" unique_id=1892693518 instance=ExtResource("6_d2l32")]
+position = Vector2(512, -129)
+bounce_velocity = -1200.0
+activation_delay = 2.0
+
+[node name="BlueButton2" parent="LevelTwo" unique_id=1467960117 instance=ExtResource("2_rjb05")]
+position = Vector2(-544, -4127)
+temporary_platform_path = NodePath("DelayedSpring")
+
+[node name="BlueSpring" parent="LevelTwo/BlueButton2" unique_id=2142190875 instance=ExtResource("3_hbdav")]
+position = Vector2(192, 192)
+
+[node name="BlueSpring2" parent="LevelTwo/BlueButton2" unique_id=2040362375 instance=ExtResource("3_hbdav")]
+position = Vector2(512, -128)
+
+[node name="DelayedSpring" parent="LevelTwo/BlueButton2" unique_id=264591932 instance=ExtResource("6_d2l32")]
+position = Vector2(896, -447)
+activation_delay = 4.0
+
+[node name="GuideNPC" type="Area2D" parent="LevelTwo" unique_id=555566111]
+position = Vector2(95, -1676)
+collision_layer = 0
+monitorable = false
+script = ExtResource("7_28oeu")
+npc_name = "钟楼守梯人"
+dialogue_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelTwo/GuideNPC" unique_id=675870423]
+texture_filter = 2
+position = Vector2(0, -18)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_5j4em")
+
+[node name="PromptLabel" type="Label" parent="LevelTwo/GuideNPC" unique_id=1167488842]
+visible = false
+offset_left = -70.0
+offset_top = -78.0
+offset_right = 70.0
+offset_bottom = -56.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.1, 0.14, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_mo4qo")
+theme_override_font_sizes/font_size = 16
+text = "按 E 交谈"
+horizontal_alignment = 1
+
+[node name="DetectionShape" type="CollisionShape2D" parent="LevelTwo/GuideNPC" unique_id=2123125333]
+position = Vector2(0.5, -11.5)
+shape = SubResource("RectangleShape2D_detection")
+
+[node name="DecorationLayer" type="TileMapLayer" parent="LevelTwo" unique_id=331761796]
+tile_map_data = PackedByteArray("AAD3/9D/AAAOAAEAAAD+/6X/AAAOAAEAAAAHAKX/AAAOAAEAAAAJALH/AAAOAAEAAAD4/7L/AAAOAAEAAAD3/7L/AAAOAAEAAAD2/7L/AAAOAAEAAAD6/9P/AAAOAAEAAAD5/9P/AAAOAAEAAAD4/+X/AAAOAAEAAAD5/+X/AAAOAAEAAAD3/+X/AAAOAAEAAAAGAHP/AAAOAAEAAAADAG7/AAAOAAEAAAAJAGT/AAAOAAEAAAAIAGT/AAAOAAEAAAAHAGT/AAAOAAEAAAA=")
+tile_set = ExtResource("1_i75ie")
+
+[node name="LevelThree" type="Node" parent="." unique_id=937903042]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="LevelThree" unique_id=668991656]
+tile_map_data = PackedByteArray("AAAKAKX/AAAJAAEAAAAKAKT/AAAJAAEAAAAKAKP/AAAJAAEAAAAKAKL/AAAJAAEAAAAKAKH/AAAJAAEAAAAKAKD/AAAJAAEAAAAKAJ//AAAJAAEAAAAKAJ7/AAAJAAEAAAAKAJ3/AAAJAAEAAAAKAJz/AAAJAAEAAAAKAJv/AAAJAAEAAAAKAJr/AAAJAAEAAAAKAJn/AAAJAAEAAAAKAJj/AAAJAAEAAAAKAJf/AAAJAAEAAAAKAJb/AAAJAAEAAAAKAJX/AAAJAAEAAAAKAJT/AAAJAAEAAAAKAJP/AAAJAAEAAAAKAJL/AAAJAAEAAAAKAJH/AAAJAAEAAAAKAJD/AAAJAAEAAAAKAI//AAAJAAEAAAAKAI7/AAAJAAEAAAAKAI3/AAAJAAEAAAAKAIz/AAAJAAEAAAD1/6X/AAAJAAEAAAD1/6T/AAAJAAEAAAD1/6P/AAAJAAEAAAD1/6L/AAAJAAEAAAD1/6H/AAAJAAEAAAD1/6D/AAAJAAEAAAD1/5//AAAJAAEAAAD1/57/AAAJAAEAAAD1/53/AAAJAAEAAAD1/5z/AAAJAAEAAAD1/5v/AAAJAAEAAAD1/5r/AAAJAAEAAAD1/5n/AAAJAAEAAAD1/5j/AAAJAAEAAAD1/5f/AAAJAAEAAAD1/5b/AAAJAAEAAAD1/5X/AAAJAAEAAAD1/5T/AAAJAAEAAAD1/5P/AAAJAAEAAAD1/5L/AAAJAAEAAAD1/5H/AAAJAAEAAAD1/5D/AAAJAAEAAAD1/4//AAAJAAEAAAD1/47/AAAJAAEAAAD1/43/AAAJAAEAAAD1/4z/AAAJAAEAAAAKAIv/AAAJAAEAAAAKAIr/AAAJAAEAAAAKAIn/AAAJAAEAAAAKAIj/AAAJAAEAAAAKAIf/AAAJAAEAAAAKAIb/AAAJAAEAAAAKAIX/AAAJAAEAAAAKAIT/AAAJAAEAAAAKAIP/AAAJAAEAAAAKAIL/AAAJAAEAAAAKAIH/AAAJAAEAAAAKAID/AAAJAAEAAAAKAH//AAAJAAEAAAAKAH7/AAAJAAEAAAD1/4v/AAAJAAEAAAD1/4r/AAAJAAEAAAD1/4n/AAAJAAEAAAD1/4j/AAAJAAEAAAD1/4f/AAAJAAEAAAD1/4b/AAAJAAEAAAD1/4P/AAAJAAEAAAD1/4T/AAAJAAEAAAD1/4X/AAAJAAEAAAD1/4L/AAAJAAEAAAD1/4H/AAAJAAEAAAD1/4D/AAAJAAEAAAD1/3//AAAJAAEAAAD1/37/AAAJAAEAAAD1/3z/AAAJAAEAAAD1/33/AAAJAAEAAAAKAH3/AAAJAAEAAAAKAHz/AAAJAAEAAAAAAKP/AAAEAAkAAAABAKP/AAAEAAkAAAADAKH/AAAEAAkAAAAEAKH/AAAEAAkAAAAFAKH/AAAEAAkAAAAIAJ//AAAEAAkAAAAJAJ//AAAEAAkAAAD9/6D/AAAEAAkAAAAGAJf/AAAEAAkAAAAFAJf/AAAEAAkAAAAEAJf/AAAEAAkAAAADAJf/AAAEAAkAAAACAJf/AAAEAAkAAAABAJf/AAAEAAkAAAAAAJf/AAAEAAkAAAD//5f/AAAEAAkAAAD+/5f/AAAEAAkAAAD4/5D/AAAEAAkAAAD2/4j/AAAEAAkAAAD3/4j/AAAEAAkAAAD8/5X/AAAEAAkAAAD//5P/AAAEAAkAAAABAJH/AAAEAAkAAAACAJH/AAAEAAkAAAADAJX/AAAEAAkAAAD6/4r/AAAEAAkAAAD7/4r/AAAEAAkAAAD8/4r/AAAEAAkAAAAAAI3/AAAEAAkAAAABAI3/AAAEAAkAAAAGAJP/AAAEAAkAAAAIAIv/AAAEAAkAAAAJAIv/AAAEAAkAAAAGAIj/AAAEAAkAAAD2/33/AAAEAAkAAAD2/37/AAAEAAkAAAD2/3//AAAEAAkAAAD3/3//AAAEAAkAAAD4/3//AAAEAAkAAAD5/3//AAAEAAkAAAD4/37/AAAEAAkAAAD3/37/AAAEAAkAAAD3/33/AAAEAAkAAAD2/3z/AAAEAAkAAAD6/3//AAAEAAkAAAD5/37/AAAEAAkAAAD4/33/AAAEAAkAAAD3/3z/AAAEAAkAAAAEAIb/AAAEAAkAAAACAIT/AAAEAAkAAAAAAIL/AAAEAAkAAAD7/3//AAAEAAkAAAD6/37/AAAEAAkAAAD5/33/AAAEAAkAAAD4/3z/AAAEAAkAAAD3/3v/AAAEAAkAAAD2/3v/AAAEAAkAAAD1/3v/AAAJAAEAAAD1/3r/AAAJAAEAAAAKAHv/AAAJAAEAAAAKAHr/AAAJAAEAAAD2/3r/AAARAAIAAAD2/3n/AAAQAAMAAAD8/3n/AAAEAAkAAAD9/3n/AAAEAAkAAAD+/3n/AAAEAAkAAAD//3n/AAAEAAkAAAAAAHn/AAAEAAkAAAABAHn/AAAEAAkAAAACAHn/AAAEAAkAAAADAHn/AAAEAAkAAAAEAHn/AAAEAAkAAAAFAHn/AAAEAAkAAAAGAHn/AAAEAAkAAAAHAHn/AAAEAAkAAAAIAHn/AAAEAAkAAAAJAHn/AAAEAAkAAAAKAHn/AAAJAAEAAAD1/3n/AAAJAAEAAAD2/4D/AAAEAAkAAAD3/4D/AAAEAAkAAAD4/4D/AAAEAAkAAAD5/4D/AAAEAAkAAAD6/4D/AAAEAAkAAAD7/4D/AAAEAAkAAAD8/4D/AAAEAAkAAAD9/4D/AAAEAAkAAAD7/3n/AAAEAAkAAAA=")
+tile_set = ExtResource("1_i75ie")
+
+[node name="RedButton" parent="LevelThree" unique_id=1566270405 instance=ExtResource("9_u8k6i")]
+position = Vector2(-159, -6175)
+temporary_platform_path = NodePath("temporary_passway")
+pressed_texture = ExtResource("10_0qtti")
+
+[node name="temporary_passway" parent="LevelThree/RedButton" unique_id=511478013 instance=ExtResource("10_28oeu")]
+position = Vector2(687, -97)
+scale = Vector2(2, 2)
+mode = 1
+activation_delay = 2.5
+
+[node name="BlueSpring" parent="LevelThree/RedButton" unique_id=1598556852 instance=ExtResource("3_hbdav")]
+position = Vector2(760, -67)
+
+[node name="BlueButton" parent="LevelThree" unique_id=406911261 instance=ExtResource("2_rjb05")]
+position = Vector2(-224, -6879)
+temporary_platform_path = NodePath("TemporaryBridge")
+
+[node name="TemporaryBridge" parent="LevelThree/BlueButton" unique_id=71863551 instance=ExtResource("4_hbdav")]
+position = Vector2(49, -279)
+activation_delay = 2.0
+
+[node name="BlueSpring" parent="LevelThree/BlueButton" unique_id=1217993582 instance=ExtResource("3_hbdav")]
+position = Vector2(-256, -321)
+
+[node name="RedButton2" parent="LevelThree" unique_id=1456100761 instance=ExtResource("9_u8k6i")]
+position = Vector2(-607, -7714)
+temporary_platform_path = NodePath("temporary_passway")
+
+[node name="temporary_passway" parent="LevelThree/RedButton2" unique_id=489464771 instance=ExtResource("10_28oeu")]
+position = Vector2(1135, 162)
+scale = Vector2(2, 2)
+mode = 1
+activation_delay = 3.0
+visible_duration = 4.0
+
+[node name="BlueButton2" parent="LevelThree" unique_id=1756913563 instance=ExtResource("2_rjb05")]
+position = Vector2(160, -7136)
+temporary_platform_path = NodePath("DelayedSpring")
+
+[node name="DelayedSpring" parent="LevelThree/BlueButton2" unique_id=226469611 instance=ExtResource("6_d2l32")]
+position = Vector2(256, 129)
+
+[node name="GuideNPC" type="Area2D" parent="LevelThree" unique_id=758249940]
+position = Vector2(-163, -5771)
+collision_layer = 0
+monitorable = false
+script = ExtResource("7_28oeu")
+npc_name = "星空守梯人"
+dialogue_index = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelThree/GuideNPC" unique_id=217162621]
+texture_filter = 2
+position = Vector2(0, -18)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_5j4em")
+flip_h = true
+
+[node name="PromptLabel" type="Label" parent="LevelThree/GuideNPC" unique_id=1997558641]
+visible = false
+offset_left = -70.0
+offset_top = -78.0
+offset_right = 70.0
+offset_bottom = -56.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.05, 0.1, 0.14, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_mo4qo")
+theme_override_font_sizes/font_size = 16
+text = "按 E 交谈"
+horizontal_alignment = 1
+
+[node name="DetectionShape" type="CollisionShape2D" parent="LevelThree/GuideNPC" unique_id=724137911]
+position = Vector2(0.5, -11.5)
+shape = SubResource("RectangleShape2D_detection")
+
+[node name="DecorationLayer" type="TileMapLayer" parent="LevelThree" unique_id=677144533]
+tile_map_data = PackedByteArray("AAD+/5b/AAAOAAEAAAACAJb/AAAOAAEAAAAFAJb/AAAOAAEAAAD7/4n/AAAOAAEAAAAHAHj/AAAOAAEAAAACAHj/AAAOAAEAAAA=")
+tile_set = ExtResource("1_i75ie")
+
+[node name="BackgroundCanvas" type="CanvasLayer" parent="." unique_id=1195667319]
+layer = -100
+script = ExtResource("9_lu8xc")
+
+[node name="FinalLevel" type="Node" parent="." unique_id=1929881743]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="FinalLevel" unique_id=1326546]
+tile_map_data = PackedByteArray("AAD1/3j/AAAJAAEAAAD1/3f/AAAJAAEAAAD1/3b/AAAJAAEAAAD1/3X/AAAJAAEAAAD1/3T/AAAJAAEAAAD1/3P/AAAJAAEAAAD1/3L/AAAJAAEAAAD1/3H/AAAJAAEAAAD1/3D/AAAJAAEAAAD1/2//AAAJAAEAAAD1/27/AAAJAAEAAAD1/23/AAAJAAEAAAD1/2z/AAAJAAEAAAD1/2v/AAAJAAEAAAD1/2r/AAAJAAEAAAD1/2n/AAAJAAEAAAD1/2j/AAAJAAEAAAD1/2f/AAAJAAEAAAD1/2b/AAAJAAEAAAD1/2X/AAAJAAEAAAD1/2T/AAAJAAEAAAD1/2P/AAAJAAEAAAD1/2L/AAAJAAEAAAD1/2H/AAAJAAEAAAD1/2D/AAAJAAEAAAD1/1//AAAJAAEAAAD1/17/AAAJAAEAAAD1/13/AAAJAAEAAAD1/1z/AAAJAAEAAAD1/1v/AAAJAAEAAAD1/1r/AAAJAAEAAAD1/1n/AAAJAAEAAAD1/1j/AAAJAAEAAAD1/1f/AAAJAAEAAAD1/1b/AAAJAAEAAAD1/1X/AAAJAAEAAAD1/1T/AAAJAAEAAAAKAHj/AAAJAAEAAAAKAHf/AAAJAAEAAAAKAHb/AAAJAAEAAAAKAHX/AAAJAAEAAAAKAHT/AAAJAAEAAAAKAHP/AAAJAAEAAAAKAHL/AAAJAAEAAAAKAHH/AAAJAAEAAAAKAHD/AAAJAAEAAAAKAG//AAAJAAEAAAAKAG7/AAAJAAEAAAAKAG3/AAAJAAEAAAAKAGz/AAAJAAEAAAAKAGv/AAAJAAEAAAAKAGr/AAAJAAEAAAAKAGn/AAAJAAEAAAAKAGj/AAAJAAEAAAAKAGf/AAAJAAEAAAAKAGX/AAAJAAEAAAAKAGT/AAAJAAEAAAAKAGP/AAAJAAEAAAAKAGL/AAAJAAEAAAAKAGH/AAAJAAEAAAAKAGD/AAAJAAEAAAAKAF//AAAJAAEAAAAKAF7/AAAJAAEAAAAKAF3/AAAJAAEAAAAKAFz/AAAJAAEAAAAKAFv/AAAJAAEAAAAKAFr/AAAJAAEAAAAKAFn/AAAJAAEAAAAKAFj/AAAJAAEAAAAKAFf/AAAJAAEAAAAKAFb/AAAJAAEAAAAKAFX/AAAJAAEAAAAKAFT/AAAJAAEAAAAAAHf/AAAEAAkAAAADAHb/AAAEAAkAAAAEAHb/AAAEAAkAAAAGAHT/AAAEAAkAAAD9/3X/AAAEAAkAAAD7/3P/AAAEAAkAAAD5/3H/AAAEAAkAAAD3/2//AAAEAAkAAAAIAHL/AAAEAAkAAAD8/3H/AAAEAAkAAAD6/2//AAAEAAkAAAAJAG7/AAAEAAkAAAAHAG7/AAAEAAkAAAAGAG7/AAAEAAkAAAAHAG3/AAAEAAkAAAAHAG//AAAEAAkAAAAFAG//AAAEAAkAAAAGAG//AAAEAAkAAAAEAG//AAAEAAkAAAAFAG7/AAAEAAkAAAAAAGv/AAAEAAkAAAD4/3b/AAAEAAkAAAD//3P/AAAEAAkAAAADAGv/AAAEAAkAAAAEAGz/AAAEAAkAAAADAGz/AAAEAAkAAAADAG//AAAEAAkAAAD2/2f/AAAEAAkAAAAKAGb/AAAJAAEAAAAJAGX/AAAEAAkAAAAHAGX/AAAEAAkAAAAIAGX/AAAEAAkAAAD//2f/AAAEAAkAAAD8/13/AAAEAAkAAAAHAFf/AAAEAAkAAAAIAFf/AAAEAAkAAAAJAFf/AAAEAAkAAAD2/1H/AAAEAAkAAAD2/1D/AAAEAAkAAAD2/0//AAAEAAkAAAD2/07/AAAEAAkAAAD2/03/AAAEAAkAAAD2/0z/AAAEAAkAAAD3/1H/AAAEAAkAAAD4/1H/AAAEAAkAAAD5/1H/AAAEAAkAAAD6/1H/AAAEAAkAAAD7/1H/AAAEAAkAAAD6/1D/AAAEAAkAAAD5/1D/AAAEAAkAAAD4/1D/AAAEAAkAAAD4/0//AAAEAAkAAAD3/0//AAAEAAkAAAD3/1D/AAAEAAkAAAD3/07/AAAEAAkAAAD3/03/AAAEAAkAAAD4/07/AAAEAAkAAAD5/0//AAAEAAkAAAD8/1H/AAAEAAkAAAD9/1H/AAAEAAkAAAD7/1D/AAAEAAkAAAD6/0//AAAEAAkAAAD5/07/AAAEAAkAAAD4/03/AAAEAAkAAAD3/0z/AAAEAAkAAAD2/0v/AAACAAMAAAD1/0n/AAAJAAEAAAD1/0r/AAAJAAEAAAD1/0v/AAAJAAEAAAD1/0z/AAAJAAEAAAD1/03/AAAJAAEAAAD1/07/AAAJAAEAAAD1/0//AAAJAAEAAAD1/1D/AAAJAAEAAAD1/1H/AAAJAAEAAAD1/1L/AAAJAAEAAAD1/1P/AAAJAAEAAAAKAFP/AAAJAAEAAAAKAFL/AAAJAAEAAAAKAFH/AAAJAAEAAAAKAFD/AAAJAAEAAAAKAE//AAAJAAEAAAAKAE7/AAAJAAEAAAAKAE3/AAAJAAEAAAAKAEz/AAAJAAEAAAAKAEv/AAAJAAEAAAAKAEr/AAAJAAEAAAAKAEn/AAAJAAEAAAAFAFT/AAAEAAkAAAAEAFT/AAAEAAkAAAACAFP/AAAEAAkAAAABAFP/AAAEAAkAAAAAAFP/AAAEAAkAAAADAFT/AAAEAAkAAAD//1L/AAAEAAkAAAD+/1L/AAAEAAkAAAD9/1L/AAAEAAkAAAD2/0r/AAARAAMAAAD7/0n/AAAEAAkAAAD8/0n/AAAEAAkAAAD9/0n/AAAEAAkAAAD+/0n/AAAEAAkAAAD//0n/AAAEAAkAAAAAAEn/AAAEAAkAAAABAEn/AAAEAAkAAAACAEn/AAAEAAkAAAADAEn/AAAEAAkAAAAEAEn/AAAEAAkAAAAFAEn/AAAEAAkAAAAGAEn/AAAEAAkAAAAHAEn/AAAEAAkAAAAIAEn/AAAEAAkAAAAJAEn/AAAEAAkAAAA=")
+tile_set = ExtResource("1_i75ie")
+
+[node name="GuideNPC" parent="FinalLevel" unique_id=200537847 instance=ExtResource("13_5j4em")]
+position = Vector2(-98, -8654)
+dialogue_index = 3
+
+[node name="BlueButton" parent="FinalLevel" unique_id=48002176 instance=ExtResource("2_rjb05")]
+position = Vector2(-416, -9182)
+temporary_platform_path = NodePath("DelayedSpring")
+
+[node name="DelayedSpring" parent="FinalLevel/BlueButton" unique_id=711543942 instance=ExtResource("6_d2l32")]
+position = Vector2(-64, 321)
+bounce_velocity = -1200.0
+activation_delay = 2.5
+
+[node name="RedButton" parent="FinalLevel" unique_id=1715149427 instance=ExtResource("9_u8k6i")]
+position = Vector2(-544, -9309)
+temporary_platform_path = NodePath("temporary_passway")
+
+[node name="temporary_passway" parent="FinalLevel/RedButton" unique_id=780718997 instance=ExtResource("10_28oeu")]
+position = Vector2(34, 206)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+mode = 1
+
+[node name="BlueButton2" parent="FinalLevel" unique_id=1549513019 instance=ExtResource("2_rjb05")]
+position = Vector2(-288, -9053)
+temporary_platform_path = NodePath("TemporaryBridge")
+
+[node name="TemporaryBridge" parent="FinalLevel/BlueButton2" unique_id=1166509627 instance=ExtResource("4_hbdav")]
+position = Vector2(2, -450)
+
+[node name="RedButton2" parent="FinalLevel" unique_id=1904731105 instance=ExtResource("9_u8k6i")]
+position = Vector2(418, -9375)
+temporary_platform_path = NodePath("temporary_passway")
+
+[node name="temporary_passway" type="StaticBody2D" parent="FinalLevel/RedButton2" unique_id=401764067]
+position = Vector2(100, -449)
+script = ExtResource("14_ihnhe")
+mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/RedButton2/temporary_passway" unique_id=1279051957]
+texture = ExtResource("15_36qhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/RedButton2/temporary_passway" unique_id=2137136183]
+shape = SubResource("RectangleShape2D_fmth1")
+
+[node name="BlueSpring" parent="FinalLevel/RedButton2" unique_id=1717041537 instance=ExtResource("3_hbdav")]
+position = Vector2(189, 1)
+
+[node name="BrokenGround" type="Node" parent="FinalLevel" unique_id=1725340537]
+
+[node name="RedButton" parent="FinalLevel/BrokenGround" unique_id=106961628 instance=ExtResource("9_u8k6i")]
+position = Vector2(480, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton" unique_id=140660917]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton/StaticBody2D" unique_id=361152923]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton/StaticBody2D" unique_id=557656525]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton1" parent="FinalLevel/BrokenGround" unique_id=1553991841 instance=ExtResource("9_u8k6i")]
+position = Vector2(416, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton1" unique_id=1979086287]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton1/StaticBody2D" unique_id=64005187]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton1/StaticBody2D" unique_id=1858336717]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton2" parent="FinalLevel/BrokenGround" unique_id=991253367 instance=ExtResource("9_u8k6i")]
+position = Vector2(352, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton2" unique_id=1096878130]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton2/StaticBody2D" unique_id=631059711]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton2/StaticBody2D" unique_id=2020176906]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton3" parent="FinalLevel/BrokenGround" unique_id=310869758 instance=ExtResource("9_u8k6i")]
+position = Vector2(288, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton3" unique_id=108731136]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton3/StaticBody2D" unique_id=2117845378]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton3/StaticBody2D" unique_id=352666813]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton4" parent="FinalLevel/BrokenGround" unique_id=815115474 instance=ExtResource("9_u8k6i")]
+position = Vector2(224, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton4" unique_id=348037336]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton4/StaticBody2D" unique_id=837691784]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton4/StaticBody2D" unique_id=837544699]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton5" parent="FinalLevel/BrokenGround" unique_id=924018374 instance=ExtResource("9_u8k6i")]
+position = Vector2(160, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton5" unique_id=326932771]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton5/StaticBody2D" unique_id=190489081]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton5/StaticBody2D" unique_id=512109322]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton6" parent="FinalLevel/BrokenGround" unique_id=1457060446 instance=ExtResource("9_u8k6i")]
+position = Vector2(96, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton6" unique_id=1142613441]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton6/StaticBody2D" unique_id=1998523883]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton6/StaticBody2D" unique_id=1839519983]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton7" parent="FinalLevel/BrokenGround" unique_id=460236499 instance=ExtResource("9_u8k6i")]
+position = Vector2(32, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton7" unique_id=2019773978]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton7/StaticBody2D" unique_id=1322319895]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton7/StaticBody2D" unique_id=587128850]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton8" parent="FinalLevel/BrokenGround" unique_id=230645018 instance=ExtResource("9_u8k6i")]
+position = Vector2(-352, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton8" unique_id=901027527]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton8/StaticBody2D" unique_id=1525021551]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton8/StaticBody2D" unique_id=1569316504]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="BlueButton" parent="FinalLevel/BrokenGround" unique_id=1876363635 instance=ExtResource("2_rjb05")]
+position = Vector2(-31, -9824)
+temporary_platform_path = NodePath("DelayedSpring")
+
+[node name="DelayedSpring" parent="FinalLevel/BrokenGround/BlueButton" unique_id=1724448231 instance=ExtResource("6_d2l32")]
+position = Vector2(-577, 1)
+activation_delay = 2.0
+
+[node name="RedButton9" parent="FinalLevel/BrokenGround" unique_id=847175 instance=ExtResource("9_u8k6i")]
+position = Vector2(-96, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton9" unique_id=1846762632]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton9/StaticBody2D" unique_id=1794018791]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton9/StaticBody2D" unique_id=1633350994]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton10" parent="FinalLevel/BrokenGround" unique_id=515229015 instance=ExtResource("9_u8k6i")]
+position = Vector2(-160, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton10" unique_id=977640314]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton10/StaticBody2D" unique_id=1456202124]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton10/StaticBody2D" unique_id=1010012434]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton11" parent="FinalLevel/BrokenGround" unique_id=28002611 instance=ExtResource("9_u8k6i")]
+position = Vector2(-224, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton11" unique_id=1732721689]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton11/StaticBody2D" unique_id=629809700]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton11/StaticBody2D" unique_id=412678891]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton12" parent="FinalLevel/BrokenGround" unique_id=1356093176 instance=ExtResource("9_u8k6i")]
+position = Vector2(-288, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton12" unique_id=211246634]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton12/StaticBody2D" unique_id=1832765967]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton12/StaticBody2D" unique_id=1952764687]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton13" parent="FinalLevel/BrokenGround" unique_id=1129550804 instance=ExtResource("9_u8k6i")]
+position = Vector2(-418, -9824)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton13" unique_id=594487183]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton13/StaticBody2D" unique_id=211166723]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton13/StaticBody2D" unique_id=1339035264]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton14" parent="FinalLevel/BrokenGround" unique_id=335276252 instance=ExtResource("9_u8k6i")]
+position = Vector2(-479, -10336)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton14" unique_id=384664209]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton14/StaticBody2D" unique_id=2129655251]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton14/StaticBody2D" unique_id=2028812013]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="RedButton15" parent="FinalLevel/BrokenGround" unique_id=1041099741 instance=ExtResource("9_u8k6i")]
+position = Vector2(33, -10542)
+temporary_platform_path = NodePath("StaticBody2D")
+hide_with_target = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="FinalLevel/BrokenGround/RedButton15" unique_id=2073164864]
+position = Vector2(0, 64)
+script = ExtResource("14_ihnhe")
+mode = 1
+activation_delay = 0.35
+
+[node name="Sprite2D" type="Sprite2D" parent="FinalLevel/BrokenGround/RedButton15/StaticBody2D" unique_id=1034486313]
+texture = ExtResource("14_mo4qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalLevel/BrokenGround/RedButton15/StaticBody2D" unique_id=1641179113]
+shape = SubResource("RectangleShape2D_e0d74")
+
+[node name="BlueButton3" parent="FinalLevel" unique_id=96994030 instance=ExtResource("2_rjb05")]
+position = Vector2(-223, -10463)
+temporary_platform_path = NodePath("TemporaryBridge")
+
+[node name="TemporaryBridge" parent="FinalLevel/BlueButton3" unique_id=1504101747 instance=ExtResource("4_hbdav")]
+position = Vector2(547, -168)
+activation_delay = 2.0
+
+[node name="BlueSpring" parent="FinalLevel" unique_id=1518936434 instance=ExtResource("3_hbdav")]
+position = Vector2(33, -11741)
+
+[node name="DecorationLayer" type="TileMapLayer" parent="FinalLevel" unique_id=2001645323]
+tile_map_data = PackedByteArray("AAD8/0j/AAAOAAEAAAAJAEj/AAAOAAEAAAA=")
+tile_set = ExtResource("1_i75ie")
+
+[node name="Congratulations" type="Node" parent="." unique_id=1012231396]
+
+[node name="GuideNPC" parent="Congratulations" unique_id=614704996 instance=ExtResource("13_5j4em")]
+position = Vector2(-164, -11725)
+dialogue_index = 4
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Congratulations" unique_id=275386131]
+tile_map_data = PackedByteArray("AAD1/0j/AAAJAAEAAAD1/0f/AAAJAAEAAAD1/0b/AAAJAAEAAAD1/0X/AAAJAAEAAAD1/0T/AAAJAAEAAAD1/0P/AAAJAAEAAAD1/0L/AAAJAAEAAAD1/0H/AAAJAAEAAAD1/0D/AAAJAAEAAAD1/z//AAAJAAEAAAD1/z7/AAAJAAEAAAD1/z3/AAAJAAEAAAD1/zz/AAAJAAEAAAD1/zv/AAAJAAEAAAD1/zr/AAAJAAEAAAD1/zn/AAAJAAEAAAD1/zj/AAAJAAEAAAD1/zf/AAAJAAEAAAD1/zb/AAAJAAEAAAD1/zX/AAAJAAEAAAD1/zT/AAAJAAEAAAD1/zP/AAAJAAEAAAD1/zL/AAAJAAEAAAD1/zH/AAAJAAEAAAAKAEj/AAAJAAEAAAAKAEf/AAAJAAEAAAAKAEb/AAAJAAEAAAAKAEX/AAAJAAEAAAAKAET/AAAJAAEAAAAKAEP/AAAJAAEAAAAKAEL/AAAJAAEAAAAKAEH/AAAJAAEAAAAKAED/AAAJAAEAAAAKAD//AAAJAAEAAAAKAD7/AAAJAAEAAAAKAD3/AAAJAAEAAAAKADz/AAAJAAEAAAAKADv/AAAJAAEAAAAKADr/AAAJAAEAAAAKADn/AAAJAAEAAAAKADj/AAAJAAEAAAAKADf/AAAJAAEAAAAKADb/AAAJAAEAAAAKADX/AAAJAAEAAAAKADT/AAAJAAEAAAAKADP/AAAJAAEAAAAKADL/AAAJAAEAAAAKADH/AAAJAAEAAAAKADD/AAAJAAEAAAAKAC//AAAJAAEAAAAKAC7/AAAJAAEAAAAKAC3/AAAJAAEAAAD1/zD/AAAJAAEAAAD1/y//AAAJAAEAAAD1/y7/AAAJAAEAAAD1/y3/AAAJAAEAAAD1/yz/AAAJAAEAAAD1/yv/AAAJAAEAAAD1/yr/AAAJAAEAAAD1/yn/AAAJAAEAAAD1/yj/AAAJAAEAAAD1/yf/AAAJAAEAAAD1/yb/AAAJAAEAAAAKACz/AAAJAAEAAAAKACv/AAAJAAEAAAAKACr/AAAJAAEAAAAKACn/AAAJAAEAAAAKACj/AAAJAAEAAAAKACf/AAAJAAEAAAAKACb/AAAJAAEAAAD1/yX/AAAJAAEAAAD1/yT/AAAJAAEAAAD1/yP/AAAJAAEAAAD1/yL/AAAJAAEAAAD1/yH/AAAJAAEAAAD1/yD/AAAJAAEAAAD1/x//AAAJAAEAAAD1/x7/AAAJAAEAAAD1/xv/AAAJAAEAAAD1/xr/AAAJAAEAAAD1/xn/AAAJAAEAAAD1/xz/AAAJAAEAAAD1/x3/AAAJAAEAAAAKACX/AAAJAAEAAAAKACT/AAAJAAEAAAAKACP/AAAJAAEAAAAKACL/AAAJAAEAAAAKACH/AAAJAAEAAAAKACD/AAAJAAEAAAAKAB//AAAJAAEAAAAKAB7/AAAJAAEAAAAKAB3/AAAJAAEAAAAKABz/AAAJAAEAAAAKABv/AAAJAAEAAAAKABr/AAAJAAEAAAAKABn/AAAJAAEAAAAEAEP/AAAEAAkAAAD8/z3/AAAEAAkAAAD9/z3/AAAEAAkAAAADADf/AAAEAAkAAAAEADf/AAAEAAkAAAD8/zH/AAAEAAkAAAD9/zH/AAAEAAkAAAADAEP/AAAEAAkAAAACAEP/AAAEAAkAAAACADf/AAAEAAkAAAD+/z3/AAAEAAkAAAD+/zH/AAAEAAkAAAD//yz/AAAEAAkAAAAAACz/AAAEAAkAAAABACz/AAAEAAkAAAA=")
+tile_set = ExtResource("1_i75ie")
+
+[node name="BlueSpring" parent="Congratulations" unique_id=879842288 instance=ExtResource("3_hbdav")]
+position = Vector2(224, -12127)
+
+[node name="BlueSpring2" parent="Congratulations" unique_id=1720184167 instance=ExtResource("3_hbdav")]
+position = Vector2(-159, -12512)
+
+[node name="BlueSpring3" parent="Congratulations" unique_id=1582076032 instance=ExtResource("3_hbdav")]
+position = Vector2(225, -12893)
+
+[node name="BlueSpring4" parent="Congratulations" unique_id=66293223 instance=ExtResource("3_hbdav")]
+position = Vector2(-161, -13278)
+
+[node name="BigBlueSpring" parent="Congratulations" unique_id=790283075 instance=ExtResource("3_hbdav")]
+position = Vector2(31, -13663)
+scale = Vector2(3, 3)
+bounce_velocity = -3000.0

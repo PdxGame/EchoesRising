@@ -1,0 +1,245 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_menu.gd" id="1_settings"]
+[ext_resource type="Texture2D" uid="uid://mcn4xhjldxvr" path="res://assets/new_platformer_pack/Sprites/Backgrounds/Double/background_clouds.png" id="2_bg"]
+[ext_resource type="Theme" path="res://resources/ui_theme.tres" id="3_theme"]
+[ext_resource type="Texture2D" path="res://assets/new_platformer_pack/Vector/arrow_down_white.svg" id="4_arrow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(1, 0.96, 0.84, 0.96)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.34, 0.2, 0.17, 1)
+shadow_color = Color(0.19, 0.09, 0.07, 0.22)
+shadow_size = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.28, 0.72, 0.55, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.23, 0.15, 0.13, 1)
+shadow_color = Color(0.13, 0.08, 0.06, 0.28)
+shadow_size = 6
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.42, 0.84, 0.66, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.9, 0.5, 1)
+shadow_color = Color(0.16, 0.1, 0.06, 0.3)
+shadow_size = 7
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.18, 0.56, 0.43, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2, 0.12, 0.1, 1)
+shadow_color = Color(0.12, 0.06, 0.04, 0.12)
+shadow_size = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_track"]
+bg_color = Color(0.5, 0.4, 0.34, 0.45)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.38, 0.26, 0.2, 0.45)
+content_margin_top = 7.0
+content_margin_bottom = 7.0
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fill"]
+bg_color = Color(0.33, 0.78, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fill_hover"]
+bg_color = Color(0.45, 0.88, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SettingsMenu" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_theme")
+script = ExtResource("1_settings")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.42, 0.62, 0.82, 0.16)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsPanel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(560, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="SettingsBox" type="VBoxContainer" parent="CenterContainer/SettingsPanel"]
+theme_override_constants/separation = 18
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/SettingsPanel/SettingsBox"]
+horizontal_alignment = 1
+text = "设置"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.35, 0.16, 0.13, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 46
+
+[node name="LanguageLabel" type="Label" parent="CenterContainer/SettingsPanel/SettingsBox"]
+text = "语言"
+theme_override_colors/font_color = Color(0.42, 0.2, 0.13, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94, 0.76, 0.45)
+theme_override_constants/outline_size = 4
+
+[node name="LanguageOption" type="OptionButton" parent="CenterContainer/SettingsPanel/SettingsBox"]
+custom_minimum_size = Vector2(440, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/arrow_margin = 18
+theme_override_constants/modulate_arrow = 0
+theme_override_icons/arrow = ExtResource("4_arrow")
+theme_override_icons/arrow_disabled = ExtResource("4_arrow")
+
+[node name="MusicLabel" type="Label" parent="CenterContainer/SettingsPanel/SettingsBox"]
+text = "音乐音量"
+theme_override_colors/font_color = Color(0.42, 0.2, 0.13, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94, 0.76, 0.45)
+theme_override_constants/outline_size = 4
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/SettingsPanel/SettingsBox"]
+custom_minimum_size = Vector2(440, 0)
+theme_override_styles/slider = SubResource("StyleBoxFlat_track")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fill_hover")
+min_value = -30.0
+max_value = 0.0
+step = 0.5
+value = -10.0
+
+[node name="SfxLabel" type="Label" parent="CenterContainer/SettingsPanel/SettingsBox"]
+text = "音效音量"
+theme_override_colors/font_color = Color(0.42, 0.2, 0.13, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94, 0.76, 0.45)
+theme_override_constants/outline_size = 4
+
+[node name="SfxSlider" type="HSlider" parent="CenterContainer/SettingsPanel/SettingsBox"]
+custom_minimum_size = Vector2(440, 0)
+theme_override_styles/slider = SubResource("StyleBoxFlat_track")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_fill")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_fill_hover")
+min_value = -30.0
+max_value = 0.0
+step = 0.5
+value = -8.0
+
+[node name="FullscreenCheck" type="CheckButton" parent="CenterContainer/SettingsPanel/SettingsBox"]
+theme_override_colors/font_color = Color(0.42, 0.2, 0.13, 1)
+theme_override_font_sizes/font_size = 24
+text = "全屏"
+
+[node name="ResolutionLabel" type="Label" parent="CenterContainer/SettingsPanel/SettingsBox"]
+text = "窗口分辨率"
+theme_override_colors/font_color = Color(0.42, 0.2, 0.13, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94, 0.76, 0.45)
+theme_override_constants/outline_size = 4
+
+[node name="ResolutionOption" type="OptionButton" parent="CenterContainer/SettingsPanel/SettingsBox"]
+custom_minimum_size = Vector2(440, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/arrow_margin = 18
+theme_override_constants/modulate_arrow = 0
+theme_override_icons/arrow = ExtResource("4_arrow")
+theme_override_icons/arrow_disabled = ExtResource("4_arrow")
+
+[node name="BackButton" type="Button" parent="CenterContainer/SettingsPanel/SettingsBox"]
+custom_minimum_size = Vector2(440, 54)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.11, 0.09, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "保存并返回"
+
+[connection signal="value_changed" from="CenterContainer/SettingsPanel/SettingsBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/SettingsPanel/SettingsBox/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="CenterContainer/SettingsPanel/SettingsBox/FullscreenCheck" to="." method="_on_fullscreen_check_toggled"]
+[connection signal="item_selected" from="CenterContainer/SettingsPanel/SettingsBox/LanguageOption" to="." method="_on_language_option_item_selected"]
+[connection signal="item_selected" from="CenterContainer/SettingsPanel/SettingsBox/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="pressed" from="CenterContainer/SettingsPanel/SettingsBox/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/SettingsPanel/SettingsBox/ResolutionOption" to="." method="_play_ui_hover_sound"]
+[connection signal="mouse_entered" from="CenterContainer/SettingsPanel/SettingsBox/LanguageOption" to="." method="_play_ui_hover_sound"]
+[connection signal="mouse_entered" from="CenterContainer/SettingsPanel/SettingsBox/BackButton" to="." method="_play_ui_hover_sound"]

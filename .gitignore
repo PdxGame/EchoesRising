@@ -1,0 +1,26 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local Godot MCP CLI tooling
+.gdmcp/
+
+# Local Windows builds
+OutPut/
+
+# Local helper launcher
+opencode-us.cmd
+
+# Raw local capture workspace
+submission_shots/
+/assets/branding/新建文件夹/
+
+# Unused local asset candidates and archives
+/assets/digital_audio/
+/assets/impact_sounds/
+/assets/fonts/ark-pixel-*
+/assets/fonts/fusion-pixel-*
+/assets/fonts/OFL-ark-pixel.txt
+/assets/fonts/SmileySans-Oblique.otf
+/assets/fonts/SmileySans-Oblique.otf.import
+/assets/fonts/*.zip

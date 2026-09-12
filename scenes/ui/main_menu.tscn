@@ -1,0 +1,212 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://mcn4xhjldxvr" path="res://assets/new_platformer_pack/Sprites/Backgrounds/Double/background_clouds.png" id="2_bg"]
+[ext_resource type="AudioStream" uid="uid://u4lmc8l17hnw" path="res://assets/new_platformer_pack/Sounds/sfx_select.ogg" id="3_ui"]
+[ext_resource type="Theme" path="res://resources/ui_theme.tres" id="4_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(1, 0.96, 0.84, 0.95)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.34, 0.2, 0.17, 1)
+shadow_color = Color(0.19, 0.09, 0.07, 0.22)
+shadow_size = 8
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.28, 0.72, 0.55, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.23, 0.15, 0.13, 1)
+shadow_color = Color(0.13, 0.08, 0.06, 0.28)
+shadow_size = 6
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.42, 0.84, 0.66, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.9, 0.5, 1)
+shadow_color = Color(0.16, 0.1, 0.06, 0.3)
+shadow_size = 7
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(0.18, 0.56, 0.43, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.2, 0.12, 0.1, 1)
+shadow_color = Color(0.12, 0.06, 0.04, 0.12)
+shadow_size = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_disabled"]
+bg_color = Color(0.75, 0.78, 0.76, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.45, 0.43, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 18.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+
+[node name="MainMenu" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_theme")
+script = ExtResource("1_menu")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.42, 0.62, 0.82, 0.16)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPanel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(480, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MenuBox" type="VBoxContainer" parent="CenterContainer/MenuPanel"]
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/MenuPanel/MenuBox"]
+horizontal_alignment = 1
+text = "迟响天梯"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.35, 0.16, 0.13, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 68
+
+[node name="SubtitleLabel" type="Label" parent="CenterContainer/MenuPanel/MenuBox"]
+custom_minimum_size = Vector2(440, 0)
+horizontal_alignment = 1
+text = "回应迟迟才到，我踩准迟来的回响"
+theme_override_colors/font_color = Color(0.45, 0.2, 0.12, 1)
+theme_override_font_sizes/font_size = 21
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/MenuPanel/MenuBox"]
+disabled = true
+custom_minimum_size = Vector2(300, 54)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_disabled")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.11, 0.09, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 26
+text = "继续游戏"
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/MenuPanel/MenuBox"]
+custom_minimum_size = Vector2(300, 54)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.11, 0.09, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 26
+text = "新游戏"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/MenuPanel/MenuBox"]
+custom_minimum_size = Vector2(300, 54)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.11, 0.09, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 26
+text = "设置"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/MenuPanel/MenuBox"]
+custom_minimum_size = Vector2(300, 54)
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.11, 0.09, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 26
+text = "退出游戏"
+
+[node name="UISound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ui")
+volume_db = -6.0
+
+[connection signal="pressed" from="CenterContainer/MenuPanel/MenuBox/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuPanel/MenuBox/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuPanel/MenuBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuPanel/MenuBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="button_down" from="CenterContainer/MenuPanel/MenuBox/ContinueButton" to="." method="_play_ui_sound"]
+[connection signal="button_down" from="CenterContainer/MenuPanel/MenuBox/NewGameButton" to="." method="_play_ui_sound"]
+[connection signal="button_down" from="CenterContainer/MenuPanel/MenuBox/SettingsButton" to="." method="_play_ui_sound"]
+[connection signal="button_down" from="CenterContainer/MenuPanel/MenuBox/QuitButton" to="." method="_play_ui_sound"]
+[connection signal="mouse_entered" from="CenterContainer/MenuPanel/MenuBox/ContinueButton" to="." method="_play_ui_hover_sound"]
+[connection signal="mouse_entered" from="CenterContainer/MenuPanel/MenuBox/NewGameButton" to="." method="_play_ui_hover_sound"]
+[connection signal="mouse_entered" from="CenterContainer/MenuPanel/MenuBox/SettingsButton" to="." method="_play_ui_hover_sound"]
+[connection signal="mouse_entered" from="CenterContainer/MenuPanel/MenuBox/QuitButton" to="." method="_play_ui_hover_sound"]

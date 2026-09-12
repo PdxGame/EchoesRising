@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 迟响天梯\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "迟响天梯"
+msgstr "Echoes Rising"
+
+msgid "回应迟迟才到，我踩准迟来的回响"
+msgstr "The world answers late. I move when the echo arrives."
+
+msgid "继续游戏"
+msgstr "Continue"
+
+msgid "新游戏"
+msgstr "New Game"
+
+msgid "设置"
+msgstr "Settings"
+
+msgid "退出游戏"
+msgstr "Quit"
+
+msgid "暂停"
+msgstr "Paused"
+
+msgid "返回主菜单"
+msgstr "Main Menu"
+
+msgid "语言"
+msgstr "Language"
+
+msgid "音乐音量"
+msgstr "Music Volume"
+
+msgid "音效音量"
+msgstr "Sound Volume"
+
+msgid "全屏"
+msgstr "Fullscreen"
+
+msgid "窗口分辨率"
+msgstr "Window Resolution"
+
+msgid "保存并返回"
+msgstr "Save & Return"
+
+msgid "1K 1920×1080"
+msgstr "1K 1920×1080"
+
+msgid "2K 2560×1440"
+msgstr "2K 2560×1440"
+
+msgid "4K 3840×2160"
+msgstr "4K 3840×2160"
+
+msgid "按 E 交谈"
+msgstr "Press E to Talk"
+
+msgid "图集齿轮"
+msgstr "Atlas Gear"
+
+msgid "守梯人"
+msgstr "The Keeper"
+
+msgid "花园守梯人"
+msgstr "Garden Keeper"
+
+msgid "钟楼守梯人"
+msgstr "Tower Keeper"
+
+msgid "星空守梯人"
+msgstr "Sky Keeper"
+
+msgid "当前 %.1f m    最高 %.1f m"
+msgstr "Current %.1f m    Best %.1f m"
+
+msgid "恭喜登顶"
+msgstr "Summit Reached"
+
+msgid "空格 / W 继续"
+msgstr "Space / W to Continue"
+
+msgid "空格 / W 结束"
+msgstr "Space / W to Finish"
+
+msgid "ESC 关闭"
+msgstr "ESC to Close"
+
+msgid "平台"
+msgstr "Platform"
+
+msgid "桥"
+msgstr "Bridge"
+
+msgid "门"
+msgstr "Door"
+
+msgid "弹簧"
+msgstr "Spring"
+
+msgid "%s 即将出现 %.1f 秒"
+msgstr "%s appears in %.1f s"
+
+msgid "%s 即将消失 %.1f 秒"
+msgstr "%s disappears in %.1f s"
+
+msgid "%s 剩余 %.1f 秒"
+msgstr "%s: %.1f s left"
+
+msgid "%s 即将恢复 %.1f 秒"
+msgstr "%s returns in %.1f s"
+
+msgid "%s 等待玩家离开"
+msgstr "%s: waiting for player to move"
+
+# 索引 0
+msgid "欢迎来到迟响天梯。\n先学会移动和跳跃，再一路向上。"
+msgstr ""
+"Welcome to Echoes Rising.\n"
+"Learn to move, then climb."
+
+msgid "A/D 或 ←/→ 移动，\nW/↑/空格 跳跃。\n按住时间越久，跳得越高。"
+msgstr ""
+"A/D or ←/→ to move.\n"
+"W/↑/Space to jump.\n"
+"Hold longer to jump higher."
+
+msgid "掉下去不会死，\n但每次都得重新爬。\n踩稳了再跳。"
+msgstr ""
+"Falling will not kill you,\n"
+"but you must climb again.\n"
+"Land well before you leap."
+
+msgid "前面的弹簧会把你弹高，\n记得从正上方踩下去，\n祝你一路顺风。"
+msgstr ""
+"The spring ahead will launch you high.\n"
+"Land on it from above.\n"
+"Good luck."
+
+# 索引 1
+msgid "来到这里说明你已经学会了基础操作，\n从这里开始，\n某些回应会慢一步。"
+msgstr ""
+"You have mastered the basics.\n"
+"From here on,\n"
+"some answers arrive late."
+
+msgid "踩下蓝色按钮，\n迟来的平台或弹簧会出现。"
+msgstr ""
+"Step on a blue button.\n"
+"A delayed platform or spring will appear."
+
+msgid "等迟来的机关出现，\n看清位置，再踏出下一步。"
+msgstr ""
+"Wait for the late mechanism.\n"
+"Read its position before you move."
+
+msgid "机关回应期间，\n重复踩下不会重置时间。\n等回应结束，下一次踩下才生效。"
+msgstr ""
+"While a mechanism is responding,\n"
+"stepping on the button again will not reset its timer.\n"
+"Wait for the response to end; the next press will then take effect."
+
+# 索引 2
+msgid "踩下红色按钮，\n挡路的门会迟一步打开，\n过一会儿又恢复原状。"
+msgstr ""
+"Step on a red button.\n"
+"The door opens a beat later,\n"
+"then closes again."
+
+msgid "按钮只是开端，\n看清机关的先后顺序，\n让迟来的回应彼此接力。"
+msgstr ""
+"The button is only the beginning.\n"
+"Read the sequence,\n"
+"and let each late answer carry the next."
+
+# 索引 3
+msgid "登顶的最后一程没有新的机关，\n只有紧凑的路线和更准的落点。"
+msgstr ""
+"The final ascent adds no new devices,\n"
+"only tighter routes and more precise landings."
+
+msgid "熟悉过的跳跃、弹簧和按钮，\n会在这里接连回应你。"
+msgstr ""
+"The jumps, springs, and buttons you know\n"
+"will answer one after another."
+
+msgid "这里没有多余的空间，\n看清节奏，一次踩准。"
+msgstr ""
+"There is no room for error.\n"
+"Read the rhythm. Land it in one try."
+
+msgid "回应迟迟才到，\n你必须在它到来前，先迈出下一步。"
+msgstr ""
+"The answer arrives late.\n"
+"You must take the next step before it comes."
+
+# 索引 4
+msgid "恭喜！"
+msgstr "Congratulations!"
+
+msgid "恭喜你走到这里。\n踩上最后的弹簧，\n让一路迟来的回响，\n一起送你登顶。"
+msgstr ""
+"You made it this far.\n"
+"Take the final spring,\n"
+"and let every late echo\n"
+"carry you to the summit."
+
+# 索引 5
+msgid "你来了。"
+msgstr "You made it."
+
+msgid "这一路，\n你踩准的不只是机关，\n还有它们迟来的回响。"
+msgstr ""
+"Along the way,\n"
+"you landed not only on mechanisms,\n"
+"but on their late echoes."
+
+msgid "有些答案没有立刻出现，\n但你走过的路，\n一直都在。"
+msgstr ""
+"Some answers did not appear at once,\n"
+"but the path you walked\n"
+"was always there."
+
+msgid "做过的从来不是无用功，\n只是在成为回响之前，\n它需要一点时间。"
+msgstr ""
+"Nothing you did was wasted.\n"
+"It only needed time\n"
+"to become an echo."
+
+msgid "回响终于追上了你，\n而你也已经走到了这里。"
+msgstr ""
+"The echo has finally caught up with you,\n"
+"and you have already made it here."

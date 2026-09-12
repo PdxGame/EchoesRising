@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cd8a3wh4g500x"]
+
+[ext_resource type="Script" uid="uid://c0tijiiojr253" path="res://scripts/objects/button.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://shyi2ve842ql" path="res://assets/new_platformer_pack/Sprites/Tiles/Default/switch_red.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cs811jodsv7ac" path="res://assets/new_platformer_pack/Sprites/Tiles/Default/switch_red_pressed.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_detection"]
+size = Vector2(64, 41)
+
+[node name="RedButton" type="Area2D" unique_id=1566270405]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1")
+pressed_texture = ExtResource("3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=752351212]
+texture = ExtResource("2")
+
+[node name="DetectionShape" type="CollisionShape2D" parent="." unique_id=2042990922]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_detection")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
